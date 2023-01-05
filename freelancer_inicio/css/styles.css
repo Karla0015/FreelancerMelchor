@@ -1,0 +1,283 @@
+:root{
+    --blanco:#ffffff;
+    --oscuro:#212121;
+    --primario:#FF0000;/* variables de css*/
+    --gris:#757575;
+    --secundario:#877ae7;
+    --FONDO:#a6d2de;
+
+}
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;/* ayuda a que el pading y asi no afecte el tama;o del elemento*/
+    scroll-snap-type: y mandatory;/* solo para el scroll vertical*/
+}
+*,*:before, *:after{
+    box-sizing: inherit;/* se aplica a todos los elementos que ayuda a que el pading y asi no afecte el tama;o del elemento*/
+}
+
+body{
+    font-size: 16px;/* 1 rem es igual a 10 px*/
+    font-family: 'Krub', sans-serif;
+
+    background-image: linear-gradient(to top,VAR(--FONDO) 0%, VAR(--blanco));/* SE HACE EL DESGRADADO*/
+}
+.h1{
+    font-size: 3.8rem;
+}
+.h2{
+    font-size: 2.8rem;
+}
+.h3{
+    font-size: 1.8rem;
+}
+h1,h2,h3{
+ text-align: center;
+}
+.sombra{
+    /* -webkit-box-shadow: 0px 15px 15px 0px rgba(0,0,0,0.45);/* https://www.cssmatic.com/box-shadow le da sopporte googlle*/
+    /* -moz-box-shadow: 0px 15px 15px 0px rgba(0,0,0,0.45);;e da sopprte firefoz */ 
+    box-shadow: 0px 15px 15px 0px rgba(0,0,0,0.45); 
+    background-color: var(--blanco);
+    padding: 2rem;
+   
+    border-radius:1rem;
+}
+
+
+
+.titulo span{ 
+    font-size: 2rem;
+
+    color: var(--primario);
+
+}
+.contenedor{
+    max-width: 120rem;
+    margin:0 auto 0 auto;/* como las manecillas del reloj*/
+}
+
+.boton{
+background-color: var(--secundario);
+color: var(--blanco);
+padding: 1rem 3rem;
+margin-top:1rem;
+font-size:2rem;
+text-decoration: none;
+text-transform: uppercase;
+font-weight: bold;
+border-radius: 1rem;
+width: 90%;
+text-align: center;
+border: none;
+
+}
+@media (min-width: 768px){
+  .boton{
+    width: auto;
+  }
+}
+.boton:hover{
+    cursor: pointer;
+}
+
+/*utilidades */
+
+.w-sm-100{
+    width: 100%;
+ }
+
+ @media (min-width: 768px){
+    .w-sm-100{
+        width: auto;
+    }
+ }
+
+ .flex{
+    display: flex;
+ }
+ .alinear-derecha{
+    justify-content: flex-end;
+ }
+
+.nav-bg{
+    background-color: var(--secundario);
+}
+
+.navegacion-principal{
+    
+    display: flex;/* para poder accedera sus etiquetas */
+    flex-direction: column;
+   
+    
+}
+
+.navegacion-principal a{
+    display: block;
+    text-align: center;
+    padding: 1rem; 
+    color: var(--blanco);
+    text-decoration:none;
+    font-size: 2rem;
+    font-weight: 700;
+    
+}
+@media (min-width: 768px){
+    .navegacion-principal{
+        flex-direction: row;  
+        justify-content:space-between;/* hace que se separen los enlaces*/  
+    }
+}
+
+.navegacion-principal a:hover{
+background-color: var(--primario);
+}
+
+.hero{
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    height: 450px;
+    margin-bottom:2rem ;
+    position: relative;
+     
+}
+.contenido-hero{
+position: absolute;
+background-color:rgba(0, 0,0, .6);
+width: 100%;
+height: 100%;
+
+display: flex;/* se alinea horrizxonal */
+flex-direction: column;/* se alinea horizontal */
+align-items: center;/* alinea vertical */
+justify-content: center;/* vertical */
+
+
+}
+
+.contenido-hero h2, .contenido-hero p{
+    color: var(--blanco);
+
+}
+.ubicacion{
+    display: flex;/* nos permite elegir sus herramientas su tipo es como columnas*/
+
+    align-items: flex-end;
+
+}
+
+
+@media (min-width:768px ){
+    .servicios{
+        display: grid;/* nos permite elegir sus herramientas su tipo es como si fuera una tabla */
+        grid-template-columns: repeat(3,2fr);/*o  2fr 2fr 2fr; para dividirlo */
+        column-gap: 1rem;/*separacion entre colunmas*/
+       
+        /* grid: 200px, 800px/300px, 300px; es lo mismo per simplificado */
+    
+    }
+    
+}
+.servicios,
+.navegacion-principal,
+.formulario{ /* para que el scroll se detenga, no funciona en todos los navegadores como por ejemplo en safasi, opera*/
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+.servicioSection{
+display: flex;
+flex-direction: column;
+align-items: center;
+
+}
+.servicioSection h3{
+color: var(--secundario);
+
+}
+.servicioSection p{
+    line-height: 2;
+    font-weight: normal;
+}
+
+.servicioSection .iconos{
+    height: 15rem;
+    width: 15rem;
+    background-color:var(--secundario);
+    border-radius: 50%;
+    display: flex;/* nos permite elegir sus herramientas su tipo es como columnas*/
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.formulario{
+    
+    background-color: var(--gris);
+    width: min(60rem, 100%);/* usa el valor mas peque;o  */
+    margin: 0 auto;/* padre no debe tener display flex, se puede usar este para centrarlo horizontalmente*/
+    padding: 2rem;
+    border-radius: 1rem;
+
+}
+.formulario fieldset{
+    border: NONE;
+
+
+}
+.formulario legend{
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--secundario);
+
+}
+ 
+@media (min-width: 768px)
+{
+   .contenedor-campos{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);/*se divide la pnatlla en dos es lo mismo si pones 50% 50%*/
+    grid-row:auto auto 20rem;
+    column-gap: 1rem;
+}     
+    .campo:nth-child(3), .campo:nth-child(4) {/*se cuenta desde el 1*/
+        grid-column: 1/3;/*ahi le deciamos que valla desde la columna 1 a la 3*/
+
+    }
+}
+
+
+.campo{
+    margin-bottom: 1rem;
+}
+.campo textarea{
+    height: 20rem;
+
+}
+.campo label{
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;/* topara todo el espacio disponible  */
+}
+
+.input-text{
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: .5rem;
+}
+.footer{
+    text-align: center;
+}
+
+/* .navegacion-principal a:visited{
+background-color:var(--gris);
+color:var(--blanco);
+} */
+
+/* no ids por que afecta la especifidad es decir que se va a mostrar  el selector de css que sea mas especifico*/
